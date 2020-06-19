@@ -1,8 +1,6 @@
 const Engine = Matter.Engine;
 const World = Matter.World;
 const Bodies = Matter.Bodies;
-const Body = Matter.Body;
-const Render = Matter.Render;
 const Constraint = Matter.Constraint;
 
 var engine,world;
@@ -18,11 +16,11 @@ function setup() {
 
 	roof = new Roof(625,123,400,50);
 
-	bob1 = new Bob(487,440,70);
-	bob2 = new Bob(557,440,70);
-	bob3 = new Bob(627,440,70);
-	bob4 = new Bob(697,440,70);
-	bob5 = new Bob(767,440,70);
+	bob1 = new Bob(487,440,40);
+	bob2 = new Bob(557,440,40);
+	bob3 = new Bob(627,440,40);
+	bob4 = new Bob(697,440,40);
+	bob5 = new Bob(767,440,40);
 
 	rope1 = new Rope(bob1.body,roof.body,-160,0);
 	rope2 = new Rope(bob2.body,roof.body,-80,0);
@@ -35,6 +33,7 @@ function setup() {
 }
 
 function draw() {
+  rectMode(CENTER);
   background('silver');
 
   roof.display();
@@ -52,8 +51,12 @@ function draw() {
 
 
   textSize(20);
-  text("x:"+mouseX,100,100); 
-  text("y:"+mouseY,100,130);
+  text("x:"+mouseX,25,50); 
+  text("y:"+mouseY,25,75);
+
+  textSize(40);
+  fill('red');
+  text("NEWTONS'S CRADLE",429,50);
   
   drawSprites();
  
@@ -61,9 +64,6 @@ function draw() {
 
 function keyPressed(){
   if(keyCode === UP_ARROW){
-    Matter.Body.applyforce(bobObject1.body,bobObject1.body.position,{x:-50,y:-60})
+    Matter.Body.applyForce(bob1.body,bob1.body.position,{x:-50,y:-60});
   }
 }
-
-
-

@@ -4,8 +4,8 @@ class Bob {
           frictionAir :0, 
           isStatic :false, 
           restitution :1,
-          friction :200,  
-          density: 50
+          friction :0.75,  
+          density: 0.4
      }
       this.body = Bodies.circle(x, y, radius, options);
       this.radius = radius;
@@ -16,7 +16,7 @@ display(){
      var pos = this.body.position;
      fill("pink");
      ellipseMode(CENTER);
-     ellipse(pos.x, pos.y, this.radius);
+     ellipse(pos.x, pos.y, 80, 80);
    }
  }
  
